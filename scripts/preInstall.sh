@@ -1,7 +1,7 @@
 #set env vars
 set -o allexport; source .env; set +o allexport;
 
-car << EOT >> ./install-conf.yml
+cat << EOT >> ./install-conf.yml
 # WebUI Admin definition
 frontendlogin: admin
 frontendpassword: $ADMIN_PASSWORD
