@@ -7,7 +7,7 @@ services:
     ports: ["8080:8080"]
     environment:
       - CELLS_INSTALL_YAML=/pydio/config/install.yml
-      - CELLS_SITE_BIND=172.17.0.1:8564
+      - CELLS_SITE_BIND=172.17.0.1:8080
       - CELLS_SITE_EXTERNAL=https://${PUBLIC_FQDN}
     volumes:
       - ./cellsdir:/var/cells
