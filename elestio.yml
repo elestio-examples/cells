@@ -10,8 +10,14 @@ ports:
 environments:
   - key: "ADMIN_PASSWORD"
     value: "random_password"
+  - key: "ADMIN_EMAIL"
+    value: "[EMAIL]"
   - key: "MYSQL_PASSWORD"
     value: "random_password"
+  - key: "CELLS_ADMIN_PWD"
+    value: "random_password"
+  - key: "PUBLIC_FQDN"
+    value: "[CI_CD_DOMAIN]"
 
 config:
   runTime: "dockerCompose"

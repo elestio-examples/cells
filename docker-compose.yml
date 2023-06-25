@@ -5,9 +5,15 @@ services:
     image: pydio/cells:latest
     restart: always
     ports:
-      - "172.17.0.1:8564:8080"
+      - "172.17.0.1:8564:80"
     environment:
+      - CELLS_BIND=${PUBLIC_FQDN}:443
+      - CELLS_EXTERNAL=https://${PUBLIC_FQDN}
+      - CELLS_LE_AGREE=1
+      - CELLS_LE_EMAIL=${ADMIN_EMAIL}
       - CELLS_INSTALL_YAML=/pydio/config/install.yml
+      - CELLS_ADMIN_PWD=${CELLS_ADMIN_PWD}
+      - MYSQL_PYDIO_PWD=${MYSQL_PYDIO_PWD}
     volumes:
       - ./cellsdir:/var/cells
       - ./install-conf.yml:/pydio/config/install.yml:ro
