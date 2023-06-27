@@ -4,10 +4,12 @@ services:
   cells:
     image: pydio/cells:latest
     restart: always
-    ports: ["8080:8080"]
+    ports:
+      - 172.17.0.1:8080:8080
     environment:
       - CELLS_INSTALL_YAML=/pydio/config/install.yml
-      - CELLS_SITE_BIND=172.17.0.1:8080
+      - CELLS_SITE_BIND=0.0.0.0:8080
+      - CELLS_SITE_NO_TLS=1
       - CELLS_SITE_EXTERNAL=https://${PUBLIC_FQDN}
     volumes:
       - ./cellsdir:/var/cells
