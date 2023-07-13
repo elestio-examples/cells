@@ -1,0 +1,33 @@
+version: "3.3"
+
+services:
+  cells:
+    image: elestio4test/cells:latest
+    restart: always
+    ports:
+      - 172.17.0.1:8080:8080
+    environment:
+      - CELLS_INSTALL_YAML=/pydio/config/install.yml
+      - CELLS_SITE_BIND=0.0.0.0:8080
+      - CELLS_SITE_NO_TLS=1
+      - CELLS_SITE_EXTERNAL=https://${PUBLIC_FQDN}
+    volumes:
+      - ./cellsdir:/var/cells
+      - ./install-conf.yml:/pydio/config/install.yml:ro
+
+  mysql:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: cells
+      MYSQL_USER: pydio
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ./mysqldir:/var/lib/mysql
+    command:
+      [
+        mysqld,
+        --character-set-server=utf8mb4,
+        --collation-server=utf8mb4_unicode_ci,
+      ]
