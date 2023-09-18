@@ -14,4 +14,4 @@ dbtcphostname: mysql
 dbtcpport: 3306
 dbtcpname: cells
 dbtcpuser: pydio
-dbtcppassword: ChangeMe!
+dbtcppassword: P@ssw0rd
