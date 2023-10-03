@@ -13,7 +13,7 @@ services:
     volumes:
       - ./data:/var/cells/data
       - ./cellsdir:/var/cells
-      - ${foldername}/install-conf.yml:/pydio/config/install.yml:ro
+      - ${folderName}/install-conf.yml:/pydio/config/install.yml:ro
 
   mysql:
     image: mysql:8
