@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   cells:
-    image: pydio/cells:latest
+    image: elestio/cells:latest
     restart: always
     ports:
       - 172.17.0.1:8080:8080
@@ -16,7 +16,7 @@ services:
       - ./install-conf.yml:/pydio/config/install.yml:ro
 
   mysql:
-    image: mysql:8
+    image: elestio/mysql:8.0
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
